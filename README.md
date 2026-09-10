@@ -77,8 +77,8 @@ Both NVIDIA DLLs are load-bearing. If either is deleted, `CreateFeature` fails a
 
 ```bat
 :: Clone
-git clone https://github.com/Ishanoshada/DLSS5-Vlc-Upscaler.git
-cd DLSS5-Vlc-Upscaler\scripts
+git clone https://github.com/Ishanoshada/DLSS5-VLC-UpScaler.git
+cd DLSS5-VLC-UpScaler\scripts
 
 :: Install into VLC (Administrator)
 python install.py
