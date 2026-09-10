@@ -29,6 +29,23 @@ Real screenshots from a 640×360 HDRip upscaled through the stack on an RTX 3050
 | ![Before 2](imgs/2b.png) | ![After 2](imgs/2a.png) |
 
 
+
+
+## Live demo
+
+![DLSS5 in VLC — timeline](imgs/debug.gif)
+
+The animation above is one continuous playback, three phases:
+
+| Phase | Time | What is on | What you see |
+|---|---|---|---|
+| **1. Baseline** | 0:00 – 0:02 | ReShade attached, **both techniques off** | VLC's native output. Sharp edges are soft, compression banding visible in gradients, dark scenes muddy |
+| **2. DLSS 5 active** | 0:02 – 0:05 | `Lumenite_Kernel` + `DLSS5_Feed` **enabled** | Edges sharpen, banding smooths, fine grain stays stable. This is the state the installer ships you toward |
+| **3. ReShade debugger** | 0:05 – end | ReShade overlay open on the **Debug** tab | Live statistics: per-technique GPU time, draw-call counts, the DLSS 5 NR feature state (`feature 18` created), and the Feeder's work-resolution target |
+
+---
+
+
 ## What this actually does
 
 | Component | Runs in target? |
@@ -46,10 +63,6 @@ Real screenshots from a 640×360 HDRip upscaled through the stack on an RTX 3050
 
 Both NVIDIA DLLs are load-bearing. If either is deleted, `CreateFeature` fails and DLSS 5 NR stops working. The installer fetches both automatically.
 
-
-
----
-
 ## Requirements
 
 - Windows 10/11, 64-bit
@@ -58,6 +71,7 @@ Both NVIDIA DLLs are load-bearing. If either is deleted, `CreateFeature` fails a
 - NVIDIA GPU with a recent driver (RTX 20/30 via FP16 path, RTX 40/50 full speed)
 
 ---
+
 
 ## Quick start
 
