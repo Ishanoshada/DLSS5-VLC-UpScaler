@@ -368,6 +368,7 @@ Dlss5-Vlc-Upscaler/
 - [jlrouzies-fr/DLSS5-Feeder](https://github.com/jlrouzies-fr/DLSS5-Feeder) — Feeder addon + shader
 - [umar-afzaal/LumeniteFX](https://github.com/umar-afzaal/LumeniteFX) — Lumenite motion-vector shaders
 - [RankFTW/rhi-repo](https://github.com/RankFTW/rhi-repo) — DLSS 5 NR addon releases
+- [faisalkindi/DLSS5oneclick](https://github.com/faisalkindi/DLSS5oneclick) — DLSS 5 one-click installer
 - NVIDIA — `nvngx_dlss.dll`, `nvngx_dlssnr.dll`
 
 ---
