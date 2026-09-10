@@ -1,0 +1,90 @@
+# ---------------------------------------------------------------------------
+# DLSS5 VLC Upscaler — repo .gitignore
+#
+# Rule of thumb: anything the installer can re-download goes in this file.
+# Anything a human edits or reads stays in git.
+# Threshold: roughly >500 KB or a compiled binary → excluded.
+# ---------------------------------------------------------------------------
+
+# --- Binaries the installer auto-downloads ---------------------------------
+# dxgi.dll is the ReShade 6.8 proxy (~5.5 MB). install.py fetches it from
+# reshade.me / GitHub release and extracts ReShade64.dll.
+dlss-files/dxgi.dll
+
+# The DLSS 5 RenoDX add-on (~1.7 MB). install.py fetches from community rehosts.
+dlss-files/renodx-dlss5.addon64
+
+# The NVIDIA NGX runtime DLLs — 59 MB and 166 MB. Too big for git, and they
+# do nothing in VLC anyway (VLC never calls the NGX API). --skip-big avoids them.
+dlss-files/nvngx_dlss.dll
+dlss-files/nvngx_dlssnr.dll
+
+# --- Shader binaries — kept small, but exclude the rebuilt variants ---------
+# The .fx / .fxh files themselves stay (they're source and small).
+# Anything the installer regenerates goes.
+reshade-shaders/Shaders/*.part
+reshade-shaders/Shaders/include/*.part
+reshade-shaders/Textures/*.part
+
+# --- Downloaded intermediates and backups ----------------------------------
+*.part
+*.bak
+*.placeholder
+*.tmp
+
+# --- Optional per-user config overrides ------------------------------------
+# install.py --force-fetch can overwrite these; treat them as machine state
+# rather than source if you prefer. Comment out either line to commit them.
+# dlss-files/ReShade.ini
+# dlss-files/ReShadePreset.ini
+# dlss-files/dlss5-feed.cfg
+
+# --- Python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# --- Editors / IDE ---------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# --- Windows ---------------------------------------------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# --- OS junk ---------------------------------------------------------------
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# --- Local logs ------------------------------------------------------------
+ReShade.log
+dlss5-feed.log
+*.log
+
+# --- Build outputs / temp --------------------------------------------------
+scripts/gui/build/
+scripts/gui/dist/
+*.spec
+
+# --- If you ever git-lfs these, the pointer files are small ----------------
+# !dlss-files/nvngx_dlss.dll
+# !dlss-files/nvngx_dlssnr.dll
