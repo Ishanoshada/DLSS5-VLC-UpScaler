@@ -166,7 +166,7 @@ python inject-any.py -t "app.exe" --show-dll
 
 ```bat
 :: Run as Administrator (needed for install/uninstall)
-cd /d D:\github\dlss-5\repo\scripts\gui
+cd scripts/gui
 python app.py
 ```
 
